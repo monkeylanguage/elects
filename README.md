@@ -1,6 +1,6 @@
 # Elects
 
-Elects is a simple command line utility, which shows simple charts of elects by given name of Czech village. It searches the Czech villages, if there is more than 1 village with such name (which is pretty common in Czech republic), it will ask you to choose for the exact one you want to show charts for. 
+Elects is a simple command line utility, which shows simple charts of elects by given name of Czech village. It searches the Czech villages, if there is more than 1 village with such name (which is pretty common in Czech republic), it will ask you to choose for the exact one you want to show charts for. Make sure to download the whole folder or use the git clone :-)
 
 ## Usage
 
