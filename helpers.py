@@ -38,7 +38,7 @@ frondes = {
     "18": {"name": "Česká národní fronta", "ansi_color": ""},
 }
 
-def strip_accents(text):
+def strip_accents(text: str) -> str:
 	try:
 		text = unicode(text, 'utf-8')
 	except (TypeError, NameError):
