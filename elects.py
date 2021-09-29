@@ -4,10 +4,12 @@ from helpers import *
 import os
 
 def init_args() -> Dict:
+	
 	parser = argparse.ArgumentParser(
 		description="""Draw a chart for elect results for given village name \n(source: https://volby.cz/opendata/ps2017nss/PS_nuts.htm)""",
 		formatter_class=argparse.RawTextHelpFormatter
 	)
+	
 	parser.add_argument("-n", "--name", help="Name of the village (cAsE + accents insensitive)")
 	parser.add_argument("-d", "--desc", help="Sort it descendingly by the number of votes", action="store_true")
 
