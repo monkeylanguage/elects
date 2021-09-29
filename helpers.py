@@ -73,12 +73,16 @@ def get_village_data_dict(village_data: Dict, village_id: str) -> Dict:
 			data.append(row)
 	return data
 
-def get_simple_chart_by_village(village2find: Dict) -> Dict:
+def get_simple_chart_by_village(village2find: Dict, order_desc: bool) -> Dict:
 	response = requests.get(f"""https://volby.cz/pls/ps2017nss/vysledky_okres?nuts={village2find["nuts"]}""")
 	villages_data = get_xml_attributes(ET.fromstring(response.text))
 	village_data = get_village_data_dict(villages_data, village2find["id"])
 
 	voted = list(filter(lambda x: x.get("KSTRANA"), village_data))
+
+	if order_desc:
+		voted = sorted(voted, key=lambda d: int(d['HLASY']), reverse=True)
+
 	total_votes = village_data[1]["PLATNE_HLASY"]
 
 	tick = "▇"
