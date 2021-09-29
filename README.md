@@ -16,8 +16,14 @@ python3 elects.py --name "Bechovice"
 python3 elects.py
 ```
 
+There is also a possibility to sort those elect results descendingly by adding the parameter -d or --desc
+> example of running the elect script for village Bechovice, sorting descendingly
+```sh
+python3 elects.py --name "Bechovice" --desc
+```
+
 Of course you can access the help with calling -h or --help
-> 
+>
 ```sh
 python3 elects.py -h
 ```
