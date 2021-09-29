@@ -9,6 +9,7 @@ def init_args() -> Dict:
 		formatter_class=argparse.RawTextHelpFormatter
 	)
 	parser.add_argument("-n", "--name", help="Name of the village (cAsE + accents insensitive)")
+	parser.add_argument("-d", "--desc", help="Sort it descendingly by the number of votes", action="store_true")
 
 	if not os.path.isfile("villages.json"):
 		print("Make sure to have the village.json file in the same folder as this script!")
@@ -19,6 +20,7 @@ def init_args() -> Dict:
 def main():
 	args = init_args()
 	village2find_query = args.get("name")
+	order_desc = True if args.get("desc") else False
 
 	if not village2find_query:
 		village2find_query = get_village_name_from_user()
@@ -26,7 +28,7 @@ def main():
 	village2find = choose_exact_village(village2find_query)
 
 	if village2find:
-		get_simple_chart_by_village(village2find)
+		get_simple_chart_by_village(village2find, order_desc)
 
 if __name__ == "__main__":
 	try:
